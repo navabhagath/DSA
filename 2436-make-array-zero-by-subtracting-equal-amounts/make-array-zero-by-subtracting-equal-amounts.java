@@ -2,9 +2,12 @@ class Solution {
     public int minimumOperations(int[] nums) {
         Map<Integer,Integer>mp=new HashMap<>();
         for(int num : nums){
-            if(num==0) continue;
-            else mp.put(num,mp.getOrDefault(num,0)+1);
+            mp.put(num,mp.getOrDefault(num,0)+1);
         }
-        return mp.size();
+        int ans=0;
+        for(Map.Entry<Integer,Integer>en:mp.entrySet()){
+            if(en.getKey()!=0) ans++;
+        }
+        return ans;
     }
 }
