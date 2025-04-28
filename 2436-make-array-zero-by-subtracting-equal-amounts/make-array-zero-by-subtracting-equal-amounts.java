@@ -1,13 +1,7 @@
 class Solution {
     public int minimumOperations(int[] nums) {
-        Map<Integer,Integer>mp=new HashMap<>();
-        for(int num : nums){
-            mp.put(num,mp.getOrDefault(num,0)+1);
-        }
-        int ans=0;
-        for(Map.Entry<Integer,Integer>en:mp.entrySet()){
-            if(en.getKey()!=0) ans++;
-        }
-        return ans;
+        HashSet<Integer>hs = new HashSet<>();
+        for(int num:nums) hs.add(num);
+        return hs.contains(0)?hs.size()-1:hs.size();
     }
 }
