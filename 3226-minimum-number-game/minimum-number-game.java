@@ -1,19 +1,16 @@
 class Solution {
     public int[] numberGame(int[] nums) {
-        PriorityQueue<Integer>pq=new PriorityQueue<>();
-        for(int num : nums){
-            pq.add(num);
-        }
-        List<Integer>al=new ArrayList<>();
-        while(!pq.isEmpty()){
-            int temp = pq.poll();
-            al.add(pq.poll());
-            al.add(temp);
-        }
+        Arrays.sort(nums);
         int n=nums.length;
-        for(int i=0;i<n;i++){
-            nums[i]=al.get(i);
+        for(int i=0;i<n-1;i++){
+            swap(nums,i,i+1);
+            i++;
         }
         return nums;
+    }
+    public static void swap(int []arr, int a,int b){
+        int temp=arr[a];
+        arr[a]=arr[b];
+        arr[b]=temp;
     }
 }
