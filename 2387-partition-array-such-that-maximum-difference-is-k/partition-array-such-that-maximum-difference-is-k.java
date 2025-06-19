@@ -4,7 +4,7 @@ class Solution {
         int ans=0;
         int temp=nums[0];
         for(int num : nums) System.out.print(num+" ");
-        for(int i=0;i<nums.length;i++){
+        for(int i=1;i<nums.length;i++){
             if(nums[i]-temp > k){
                 ans++;
                 temp=nums[i];
