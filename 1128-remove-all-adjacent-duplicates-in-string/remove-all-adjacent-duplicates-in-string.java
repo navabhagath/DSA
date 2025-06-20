@@ -6,9 +6,9 @@ class Solution {
             char c = s.charAt(i);
             if(!st.isEmpty() && st.peek() == c){
                 st.pop();
-                continue;
+            }else{
+                st.push(c);
             }
-            st.push(c);
         }
         System.out.println(st);
         StringBuilder sb = new StringBuilder();
