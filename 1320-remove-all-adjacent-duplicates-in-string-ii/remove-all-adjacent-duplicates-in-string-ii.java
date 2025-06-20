@@ -1,11 +1,3 @@
-class Pair{
-        char ch;
-        int cnt;
-        Pair(char ch,int cnt){
-            this.ch = ch;
-            this.cnt = cnt;
-        }
-    }
 class Solution {
     public String removeDuplicates(String s, int k) {
         int n = s.length();
@@ -30,5 +22,12 @@ class Solution {
         }
         return sb.reverse().toString();
     }
-    
+    public static class Pair{
+        char ch;
+        int cnt;
+        Pair(char ch,int cnt){
+            this.ch = ch;
+            this.cnt = cnt;
+        }
+    }
 }
