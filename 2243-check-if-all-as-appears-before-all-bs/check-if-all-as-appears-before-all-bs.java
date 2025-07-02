@@ -1,19 +1,16 @@
 class Solution {
     public boolean checkString(String s) {
-        int cnta=0;
-        int cntb=0;
+        int n = s.length();
+        Stack<Character>st = new Stack<>();
         for(char c : s.toCharArray()){
-            if(c=='a'){
-                cnta++;
+            if(c=='b'){
+                st.push(c);
             }else{
-                cntb++;
-            }
-        }
-        for(char c : s.toCharArray()){
-            if(c=='a'){
-                cnta--;
-            }else if(c == 'b' && cnta !=0 ){
-                return false;
+                if(c=='a' && st.isEmpty()){
+                    st.push(c);
+                }else if(c=='a' && st.peek() == 'b'){
+                    return false;
+                }
             }
         }
         return true;
