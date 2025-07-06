@@ -1,6 +1,6 @@
 class Solution {
     public int minNumber(int[] nums1, int[] nums2) {
-        TreeSet<Integer>hs2 = new TreeSet<>();
+        HashSet<Integer>hs2 = new HashSet<>();
         int min1 = Arrays.stream(nums1).min().getAsInt();
         int min2 = Arrays.stream(nums2).min().getAsInt();
         Arrays.sort(nums1);
