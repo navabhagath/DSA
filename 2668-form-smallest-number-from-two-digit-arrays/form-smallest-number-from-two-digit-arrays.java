@@ -1,14 +1,9 @@
 class Solution {
     public int minNumber(int[] nums1, int[] nums2) {
-        TreeSet<Integer>hs1 = new TreeSet<>();
         TreeSet<Integer>hs2 = new TreeSet<>();
         int min1 = Arrays.stream(nums1).min().getAsInt();
         int min2 = Arrays.stream(nums2).min().getAsInt();
         Arrays.sort(nums1);
-        Arrays.sort(nums2);
-        for(int num : nums1){
-            hs1.add(num);
-        }
         for(int num : nums2){
             hs2.add(num);
         }
