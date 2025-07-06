@@ -1,10 +1,11 @@
 class FindSumPairs {
-    int[] nums1;
-    int[] nums2;
-    Map<Integer,Integer>mp = new HashMap<>();
+    public int[] nums1;
+    public int[] nums2;
+    public Map<Integer,Integer>mp;
     public FindSumPairs(int[] nums1, int[] nums2) {
         this.nums1 = nums1;
         this.nums2 = nums2;
+        mp = new HashMap<>();
         for(int num : nums2){
             mp.put(num,mp.getOrDefault(num,0)+1);
         }
