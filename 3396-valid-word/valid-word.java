@@ -7,8 +7,6 @@ class Solution {
         if(n<3) return false;
         boolean c = false;
         boolean v = false;
-        boolean num = false;
-        boolean sym = false;
         for(char ch : word.toCharArray()){
             if(ch >='0' && ch<='9'){
                 continue;
