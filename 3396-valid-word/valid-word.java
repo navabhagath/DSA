@@ -1,6 +1,6 @@
 class Solution {
     public boolean isVowel(char ch){
-        return ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u' || ch=='A' || ch=='E' || ch=='I' || ch=='O' || ch=='U';
+        return ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u' || ch=='A' ||        ch=='E' || ch=='I' || ch=='O' || ch=='U';
     }
     public boolean isValid(String word) {
         int n = word.length();
@@ -11,7 +11,7 @@ class Solution {
         boolean sym = false;
         for(char ch : word.toCharArray()){
             if(ch >='0' && ch<='9'){
-                num = true;
+                continue;
             }else if(isVowel(ch)){
                 v = true;
             }else if(!isVowel(ch) && (ch>='a' && ch<='z') || (ch>='A' && ch<='Z')){
