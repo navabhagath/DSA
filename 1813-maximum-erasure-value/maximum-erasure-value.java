@@ -3,9 +3,9 @@ class Solution {
         ArrayList<Integer>al = new ArrayList<>();
         Set<Integer>hs = new HashSet<>();
         int n = nums.length;
-        int i=0;
+        int i=0,j=0;
         int sum = 0;
-        for(int j=0;j<n;j++){
+        while(j<n){
             while(hs.contains(nums[j])){
                 hs.remove(nums[i]);
                 sum-=nums[i];
@@ -14,6 +14,7 @@ class Solution {
             sum+=nums[j];
             al.add(sum);
             hs.add(nums[j]);
+            j++;
         }
         return Collections.max(al);
     }
