@@ -1,33 +1,22 @@
 class Solution {
-    public List<List<Integer>> helper(int []nums){
-        int n = nums.length;
-        List<List<Integer>>ans = new ArrayList<>();
-        for(int i=0;i<(1<<n);i++){
-            List<Integer>al = new ArrayList<>();
-            for(int j=0;j<n;j++){
-                if( (i & (1<<j)) != 0 ){
-                    al.add(nums[j]);
-                }
-            }
-            ans.add(al);
-        }
-        return ans;
-    }
+    int cnt = 0;
+    int max = 0;
     public int countMaxOrSubsets(int[] nums) {
-        int orr = 0;
         int n = nums.length;
-        for(int num : nums){
-            orr = orr | num;
-        }
-        List<List<Integer>>ans = helper(nums);
-        int cnt = 0;
-        for(List<Integer>x : ans){
-            int torr = 0;
-            for(int y : x){
-                torr = torr | y;
-            }
-            if(torr == orr) cnt++;
-        }
+        max = 0;
+        for(int num : nums) max |= num;
+        cnt = 0;
+        solve(nums,0,max,0);
         return cnt;
+    }
+    public void solve(int []nums,int idx,int max,int curr){
+        
+        if(idx == nums.length){
+            if(curr == max) cnt++;
+            return;
+        }
+
+        solve(nums,idx+1,max,curr | nums[idx]);
+        solve(nums,idx+1,max,curr);
     }
 }
