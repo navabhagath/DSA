@@ -2,12 +2,13 @@ class Solution {
     public long minCost(int[] basket1, int[] basket2) {
         int n = basket1.length;
         Map<Integer,Integer>mp = new HashMap<>();
-        int min = Integer.MAX_VALUE;
         for(int i=0;i<n;i++){
             mp.put(basket1[i],mp.getOrDefault(basket1[i],0)+1);
             mp.put(basket2[i],mp.getOrDefault(basket2[i],0)-1);
-            min = Math.min(min,Math.min(basket1[i],basket2[i]));
         }
+        int min1 = Arrays.stream(basket1).min().getAsInt();
+        int min2 = Arrays.stream(basket2).min().getAsInt();
+        int min = Math.min(min1,min2);
         List<Integer>temp = new ArrayList<>();
         for(Integer key : mp.keySet()){
             int cnt = mp.get(key);
