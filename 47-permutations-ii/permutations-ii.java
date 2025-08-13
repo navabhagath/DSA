@@ -1,24 +1,26 @@
 class Solution {
     public List<List<Integer>> permuteUnique(int[] nums) {
         int n = nums.length;
+        Set<List<Integer>>hs = new HashSet<>();
         List<List<Integer>>ans = new ArrayList<>();
-        permute(ans,nums,0,n-1);
+        permute(hs,nums,0,n-1);
+        for(List<Integer>al : hs){
+            ans.add(new ArrayList<>(al));
+        }
         return ans;
     }
-    public void permute(List<List<Integer>>ans,int []nums,int left,int right){
+    public void permute(Set<List<Integer>>hs,int []nums,int left,int right){
         if(left == right){
             List<Integer>temp = new ArrayList<>();
             for(int num : nums){
                 temp.add(num);
             }
-            if(!ans.contains(temp)){
-                ans.add(temp);
-            }
+            hs.add(temp);
             return;
         }
         for(int i=left;i<=right;i++){
             swap(nums,left,i);
-            permute(ans,nums,left+1,right);
+            permute(hs,nums,left+1,right);
             swap(nums,left,i);
         }
     }
