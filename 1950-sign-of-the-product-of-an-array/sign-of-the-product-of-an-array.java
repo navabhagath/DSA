@@ -1,19 +1,13 @@
 class Solution {
-
+    public static final int mod = 1_000_000_007;
     public int arraySign(int[] nums) {
-        long prod = 0;
-        int temp = 0;
-        for(int num : nums){
-            if(num == 0) return 0;
-            else if(num >=1 ){
-                temp++;
-            }else{
-                prod++;
-            }
+        long  prod = 1;
+        for(int num : nums) {
+            prod =( prod * num ) % mod ;
         }
 
-        if(prod%2!=0) return -1;
-        
-        return 1;
+        if(prod == 0) return 0;
+        else if(prod >0 ) return 1;
+        return -1;
     }
 }
