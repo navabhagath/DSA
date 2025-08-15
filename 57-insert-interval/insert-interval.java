@@ -4,15 +4,8 @@ class Solution {
         for(int []x : intervals){
             res.add(x);
         }
-        int idx = 0;
         int n = intervals.length;
-        for(int i=0;i<n;i++){
-            if(intervals[i][0] > newInterval[0]){
-                idx = i;
-                break;
-            }
-        }
-        res.add(idx,newInterval);
+        res.add(newInterval);
         Collections.sort(res, (a,b) -> Integer.compare(a[0] , b[0]) );
         List<Pair>ans = new ArrayList<>();
         int []current = res.get(0);
