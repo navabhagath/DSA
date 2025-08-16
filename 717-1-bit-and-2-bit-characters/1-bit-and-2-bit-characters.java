@@ -1,21 +1,14 @@
 class Solution {
     public boolean isOneBitCharacter(int[] bits) {
-        Stack<Integer>st = new Stack<>();
         int n = bits.length;
-        for(int i=0;i<n;i++){
-            int curr = bits[i];
-            if(st.isEmpty()){
-                st.push(curr);
+        int i=0;
+        while(i<n-1){
+            if(bits[i]==1){
+                i+=2;
             }else{
-                int top = st.peek();
-                if(top == 1){
-                    st.pop();
-                    st.clear();
-                }else{
-                    st.push(curr);
-                }
+                i+=1;
             }
         }
-        return st.size()>=1 && st.peek()==0 && bits[n-1]==0;
+        return i==n-1;
     }
 }
