@@ -10,7 +10,7 @@ class Solution {
         for(int i=0;i<n;i++){
             int end = Math.min(i+len , n);
             String str = word.substring(i,end);
-            if(ans.compareTo(str) <= 0){
+            if(str.compareTo(ans) >= 0){
                 ans = str;
             }
         }
