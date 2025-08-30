@@ -1,19 +1,17 @@
 class Solution {
     public String greatestLetter(String s) {
-        List<String>al = new ArrayList<>();
+        String ans = "";
         for(char ch : s.toCharArray()){
             String str = Character.toUpperCase(ch)+"";
             if(Character.isUpperCase(ch)){
                 String chh = Character.toLowerCase(ch) +"";
                 if(s.contains(chh)){
-                    al.add(str);
+                    if(str.compareTo(ans) > 0){
+                        ans = str;
+                    }
                 }
             }
         }
-        Collections.sort(al);
-        if(al.size() == 0){
-            return "";
-        }
-        return al.get(al.size()-1);
+        return ans;
     }
 }
