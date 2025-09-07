@@ -1,12 +1,11 @@
 class Solution {
     public int[] sumZero(int n) {
-        int []ans=new int[n];
-        int l=0;
-        int r=n-1;
-        int x=1;
-        while(l<r){
-            ans[l++]=x;
-            ans[r--]= -x;
+        int []ans = new int[n];
+        int len = (n % 2) == 0 ? n : n-1;
+        int x = 1;
+        for(int i=0;i<len;i+=2){
+            ans[i] = x;
+            ans[i+1] = -x;
             x++;
         }
         return ans;
