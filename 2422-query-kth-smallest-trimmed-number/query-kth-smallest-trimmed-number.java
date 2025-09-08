@@ -24,9 +24,6 @@ class Solution {
     }
     public String helper(String str,int t){
         int n = str.length();
-        if(t >= n){
-            return str;
-        }
         String temp = str.substring(n-t,n);
         return temp;
     }
