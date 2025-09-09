@@ -14,7 +14,8 @@ class Solution {
         // Collections.sort(al1);
         // Collections.sort(al2);
         // return al1.equals(al2);
-        String []parts = s.split(" ");
+        String []parts = s.split("\\s+");
+
         if(pattern.length() != parts.length) return false;
         Map<Character,String>mp1 = new HashMap<>();
         Map<String,Character>mp2 = new HashMap<>();
