@@ -1,7 +1,15 @@
 class Solution {
+    class Pair{
+        char ch;
+        int cnt;
+        Pair(char ch,int cnt){
+            this.ch = ch;
+            this.cnt = cnt;
+        }
+    }
     public String removeDuplicates(String s, int k) {
-        int n = s.length();
         Stack<Pair>st = new Stack<>();
+        int n = s.length();
         for(int i=0;i<n;i++){
             char curr = s.charAt(i);
             if(!st.isEmpty() && st.peek().ch == curr){
@@ -13,21 +21,14 @@ class Solution {
                 st.pop();
             }
         }
+
         StringBuilder sb = new StringBuilder();
         while(!st.isEmpty()){
-            Pair p = st.pop();
-            for(int i=0;i<p.cnt;i++){
-                sb.append(p.ch);
+            Pair x = st.pop();
+            for(int i=0;i<x.cnt;i++){
+                sb.append(x.ch);
             }
         }
         return sb.reverse().toString();
-    }
-    public static class Pair{
-        char ch;
-        int cnt;
-        Pair(char ch,int cnt){
-            this.ch = ch;
-            this.cnt = cnt;
-        }
     }
 }
