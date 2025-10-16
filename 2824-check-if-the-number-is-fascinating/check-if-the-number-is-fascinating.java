@@ -1,16 +1,21 @@
 class Solution {
     public boolean isFascinating(int n) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(String.valueOf(n));
-        sb.append(String.valueOf(2*n));
-        sb.append(String.valueOf(3*n));
-        String str = sb.toString();
-        String temp = "0";
-        if(str.contains(temp)) return false;
-        Set<Character>hs = new HashSet<>();
-        for(char c : str.toCharArray()){
-            hs.add(c);
+       String s="";
+       s=s+Integer.toString(n);
+       s=s+Integer.toString(2*n);
+       s=s+Integer.toString(3*n);
+    String temp="0";
+    if(s.contains(temp)){
+        return false;
+    }
+    char []array=s.toCharArray();
+    for(int i=0;i<array.length;i++){
+        for(int j=i+1;j<array.length;j++){
+            if(array[i]==array[j]){
+                return false;
+            }
         }
-        return str.length() == hs.size();
+    }
+    return true;
     }
 }
